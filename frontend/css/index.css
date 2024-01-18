@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* header */
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px;
+}
+
+/* new user form styling */
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.new-user-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 40%;
+    gap: 7px;
+}
+
+/* users display styling */
+
+#users-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+    row-gap: 20px;
+}
+
+.user-item {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(128, 128, 128, 0.2);
+    padding: 8px;
+    row-gap: 5px;
+    border-radius: 8px;
+}
+
+.user-item-details {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.buttons-section {
+    display: flex;
+    gap: 10px;
+}
+
+.buttons-section button:hover {
+   cursor: pointer;
+}
