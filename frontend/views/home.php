@@ -13,13 +13,13 @@
     <div class="form-container">
       <form action="" class="new-user-form">
         <legend>Add new user</legend>
-        <div>
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" />
+        <div class="input-section">
+          <label for="name" id="name-label">Name:</label>
+          <input type="text" id="name" name="name" onblur="toggleNewUserFormDisabled()"/>
         </div>
-        <div>
-          <label for="email">Email</label>
-          <input type="text" id="email" name="email" />
+        <div class="input-section">
+          <label for="email" id="email-label">Email:</label>
+          <input type="text" id="email" name="email" onblur="toggleNewUserFormDisabled()"/>
         </div>
         <div>
           <label for="position">Position</label>
@@ -31,7 +31,7 @@
           </select>
         </div>
         <div>
-          <button type="button" id="add-user-button">Add</button>
+          <button type="button" id="add-user-button" disabled="false">Add</button>
         </div>
       </form>
     </div>
@@ -39,5 +39,6 @@
 
     <script src="../js/users.js"></script>
     <script src="../js/addUser.js"></script>
+    <script src="../js/newUserFormValidation.js"></script>
   </body>
 </html>

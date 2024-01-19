@@ -32,6 +32,11 @@ header {
     gap: 7px;
 }
 
+.input-section {
+    display: flex;
+    flex-direction: column;
+}
+
 /* users display styling */
 
 #users-list {

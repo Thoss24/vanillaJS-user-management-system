@@ -10,10 +10,9 @@ const fetchUsers = async () => {
 
     const data = await response.json();
 
-    console.log(data)
-
     return data
 };
+
 
 // display users
 const displayUsers = async () => {
@@ -80,7 +79,8 @@ const displayUsers = async () => {
         buttonSection.append(deleteButton);
 
         editButton.addEventListener(('click'), () => {
-            window.location.href = "http://localhost/user-management-system-vanillajs/frontend/html/edit-user.html"
+            
+            window.location.href = `/user-management-system-vanillajs/frontend/views/edit-user.php${"?" + element.id}`
         });
 
         deleteButton.addEventListener(('click'), () => {
