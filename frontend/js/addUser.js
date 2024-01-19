@@ -8,7 +8,7 @@ const addUser = async (data) => {
     if (!response.ok) {
         throw new Error("Something went wrong!")
     };
-};
+}; 
 
 const handleAddUser = async () => {
 

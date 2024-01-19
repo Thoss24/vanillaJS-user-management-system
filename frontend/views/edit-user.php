@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="../js/users.js"></script>
     <script type="text/javascript" src="../js/editUser.js"></script>
     <title>Document</title>
 </head>

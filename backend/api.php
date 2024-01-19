@@ -24,11 +24,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $stmt = $pdo->prepare('SELECT * FROM staff_members');
-    $stmt->execute();
+    
+    $id = $_GET['id'];
 
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($users);
+    if ($id) {
+        $stmt = $pdo->prepare('SELECT * FROM staff_members WHERE id = :id');
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+
+        $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($user);
+    } else {
+        $stmt = $pdo->prepare('SELECT * FROM staff_members');
+        $stmt->execute();
+
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($users);
+    }
+
 } else if ($_SERVER['REQUEST_METHOD']) {
     $requestData = json_decode(file_get_contents('php://input'), true);
 
