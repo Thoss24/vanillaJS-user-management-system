@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        
+        {
+            "type": "chrome",
+            "name": "http:///opt/lampp/htdocs",
+            "request": "launch",
+            "url": "http:///opt/lampp/htdocs"
+        }
+    ]
+}

@@ -2,7 +2,7 @@ let query = String(window.location.search);
 
 let id = query.slice(1, query.length)
 
-// console.log(id)
+console.log(id)
 
 const fetchUser = async () => {
     const response = await fetch(`http://localhost/user-management-system-vanillajs/backend/api.php?id=${id}`, {
@@ -26,4 +26,5 @@ const displayUser = async () => {
 
 }
 displayUser()
+
 
