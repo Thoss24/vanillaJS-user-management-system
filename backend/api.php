@@ -24,10 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    
-    $id = $_GET['id'];
 
-    if ($id) {
+    if ($_GET) {
+        $id = $_GET['id'];
         $stmt = $pdo->prepare('SELECT * FROM staff_members WHERE id = :id');
         $stmt->bindValue(':id', $id);
         $stmt->execute();

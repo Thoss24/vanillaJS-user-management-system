@@ -21,8 +21,17 @@ const fetchUser = async () => {
 const displayUser = async () => {
 
     const data = await fetchUser();
+    const name = data[0].name
+    const position = data[0].position
+    const email = data[0].email
 
-    console.log(data)
+    const nameInput = document.getElementById('name')
+    const emailInput = document.getElementById('email')
+    const positionInput = document.getElementById('position')
+
+    nameInput.value = name
+    emailInput.value = email
+    positionInput.value = position
 
 }
 displayUser()
