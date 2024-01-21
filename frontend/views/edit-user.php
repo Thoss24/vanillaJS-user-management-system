@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css" />
     <title>Document</title>
 </head>
 <body>
-    <h1>Edit</h1>
-
-    <form action="" class="new-user-form">
+    <div class="edit-user-page">
+    <form action="" class="edit-user-form">
         <legend>Edit user</legend>
         <div class="input-section">
           <label for="name" id="name-label">Name:</label>
@@ -19,7 +19,7 @@
           <label for="email" id="email-label">Email:</label>
           <input type="text" id="email" name="email"/>
         </div>
-        <div>
+        <div class="input-section">
           <label for="position">Position</label>
           <select name="position" id="position">
             <option value="Lecturer">Lecturer</option>
@@ -29,10 +29,10 @@
           </select>
         </div>
         <div>
-          <button type="button" id="add-user-button">Edit</button>
+          <button type="button" id="add-user-button" onclick="editUserHandler()">Edit</button>
         </div>
       </form>
-
+      </div>
       <script type="text/javascript" src="../js/editUser.js"></script>
 </body>
 </html>

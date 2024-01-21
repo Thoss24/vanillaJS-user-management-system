@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
 }
-else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+else if($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     if ($_GET) {
         $id = $_GET['id'];
@@ -41,7 +41,7 @@ else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         echo json_encode($users);
     }
 
-} else if ($_SERVER['REQUEST_METHOD']) {
+} else if ($_SERVER['REQUEST_METHOD'] === 'POST')  {
     $requestData = json_decode(file_get_contents('php://input'), true);
 
     $name = $requestData['name'];
@@ -54,6 +54,29 @@ else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $stmt->bindValue(':position', $position);
 
     $stmt->execute();
+} else if ($_SERVER['REQUEST_METHOD'] === 'PATCH')  {
+    $requestData = json_decode(file_get_contents('php://input'), true);
+
+    $id = $requestData['id'];
+    $name = $requestData['name'];
+    $email = $requestData['email'];
+    $position = $requestData['position'];
+    $last_edited = $requestData['last_edited'];
+
+    $stmt = $pdo->prepare('UPDATE staff_members SET name = :name, email = :email, position = :position, last_edited = :last_edited WHERE id = :id');
+    $stmt->bindValue(':name', $name);
+    $stmt->bindValue(':email', $email);
+    $stmt->bindValue(':position', $position);
+    $stmt->bindValue(':id', $id);
+    $stmt->bindValue(':last_edited', $last_edited);
+
+    $stmt->execute();
+} else {
+    http_response_code(405);
+
+    $data = array('error', 'Method not allowed');
+
+    echo json_encode($data);
 }
 
 
