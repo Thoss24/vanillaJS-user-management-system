@@ -23,6 +23,7 @@ const handleAddUser = async () => {
     };
 
     await addUser(user)
+    location.reload()
 };
 
 const addUserEventHandler = () => {

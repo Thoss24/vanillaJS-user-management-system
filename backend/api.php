@@ -71,6 +71,14 @@ else if($_SERVER['REQUEST_METHOD'] === 'GET') {
     $stmt->bindValue(':last_edited', $last_edited);
 
     $stmt->execute();
+} else if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    $requestData = json_decode(file_get_contents('php://input'), true);
+    $id = $requestData;
+
+    $stmt = $pdo->prepare('DELETE FROM staff_members WHERE id = :id');
+    $stmt->bindValue(':id', $id);
+
+    $stmt->execute();
 } else {
     http_response_code(405);
 

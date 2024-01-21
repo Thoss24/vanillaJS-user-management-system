@@ -13,6 +13,17 @@ const fetchUsers = async () => {
     return data
 };
 
+// delete user
+const deleteUser = async (id) => {
+    const response = await fetch('http://localhost/user-management-system-vanillajs/backend/api.php', {
+        method: 'DELETE',
+        body: JSON.stringify(id)
+    });
+                                
+    if (!response.ok) {
+        throw new Error("Something went wrong!")
+    };
+};
 
 // display users
 const displayUsers = async () => {
@@ -79,12 +90,17 @@ const displayUsers = async () => {
         buttonSection.append(deleteButton);
 
         editButton.addEventListener(('click'), () => {
-            
             window.location.href = `/user-management-system-vanillajs/frontend/views/edit-user.php${"?" + element.id}`
         });
 
         deleteButton.addEventListener(('click'), () => {
-            console.log(element.id)
+            let confirm = window.confirm(`Are you sure you want to delete '${element.name}' from the database ?`)
+            if (confirm === true) {
+                deleteUser(element.id)
+                location.reload()
+            } else {
+                return
+            }
         });
 
         userItem.appendChild(nameSection);
@@ -95,7 +111,5 @@ const displayUsers = async () => {
 
         usersList.append(userItem);
     });
-
 }
 displayUsers()
-
