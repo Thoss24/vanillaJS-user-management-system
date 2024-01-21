@@ -2,7 +2,7 @@
 
 $request = $_SERVER['REQUEST_URI'];
 
-echo $request;
+// echo $request;
 
 switch ($request) {
     case '/user-management-system-vanillajs/frontend/views':
@@ -22,6 +22,4 @@ switch ($request) {
             break;
         }
 };
-
-
 ?>

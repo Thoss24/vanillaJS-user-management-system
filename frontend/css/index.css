@@ -27,7 +27,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     width: 40%;
     gap: 7px;
 }
@@ -70,4 +70,23 @@ header {
 
 .buttons-section button:hover {
    cursor: pointer;
+}
+
+/* edit user page */
+
+.edit-user-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+    width: 40%;
+    gap: 10px;
+}
+
+.edit-user-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
 }
