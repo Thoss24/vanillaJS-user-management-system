@@ -72,6 +72,24 @@ header {
    cursor: pointer;
 }
 
+/* filter users  */
+
+#filter-users-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#filter-users-container div {
+    display: flex;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    gap: 8px;
+}
+
 /* edit user page */
 
 .edit-user-form {

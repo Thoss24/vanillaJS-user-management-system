@@ -21,7 +21,7 @@
           <label for="email" id="email-label">Email:</label>
           <input type="text" id="email" name="email" onblur="toggleNewUserFormDisabled()"/>
         </div>
-        <div>
+        <div class="input-section">
           <label for="position">Position</label>
           <select name="position" id="position">
             <option value="Lecturer">Lecturer</option>
@@ -34,6 +34,18 @@
           <button type="button" id="add-user-button" disabled="false">Add</button>
         </div>
       </form>
+    </div>
+    <div id="filter-users-container">
+      <div>
+      <label for="select-users">Filter users:</label>
+      <select name="select-users" id="select-users" onchange="displayUsers()">
+        <option value="All">All</option>
+        <option value="Lecturer">Lecturer</option>
+        <option value="Reader">Reader</option>
+        <option value="Senior Lecturer">Senior Lecturer</option>
+        <option value="Professor">Professor</option>
+      </select>
+      </div>
     </div>
     <div id="users-list"></div>
 

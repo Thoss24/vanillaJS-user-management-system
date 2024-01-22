@@ -27,11 +27,31 @@ const deleteUser = async (id) => {
 
 // display users
 const displayUsers = async () => {
-
+    
     const data = await fetchUsers();
     const usersList = document.getElementById('users-list');
 
-    data.map(element => {
+    const noData = document.createElement('h3')
+    
+    // remove existing child elements
+    while (usersList.firstChild) {
+        usersList.removeChild(usersList.firstChild)
+    };
+
+    const filteredPosition = document.getElementById('select-users');
+
+    const filteredData = filteredPosition.value === "All" ? data : data.filter((users) => users.position === filteredPosition.value);
+
+    if (filteredData.length === 0 && filteredPosition.value === "All") {
+        noData.textContent = "No users in database. Try adding some using the form above!"
+        usersList.append(noData)
+    };
+    if (filteredData.length === 0 && filteredPosition.value !== "All") {
+        noData.textContent = `No users of position '${filteredPosition.value}' in database. Try adding some using the form above!`
+        usersList.append(noData)
+    };
+
+    filteredData.map(element => {
         // user info container
         const userItem = document.createElement('div');
         userItem.className = "user-item";
